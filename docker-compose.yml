@@ -1,0 +1,24 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      ARENA_LLM_PROVIDER: ${ARENA_LLM_PROVIDER:-mock}
+      ARENA_OLLAMA_BASE_URL: http://ollama:11434
+      ARENA_OLLAMA_MODEL: ${ARENA_OLLAMA_MODEL:-llama3.1:8b}
+      ARENA_OPENAI_API_KEY: ${ARENA_OPENAI_API_KEY:-}
+    restart: unless-stopped
+
+  # Optional local LLM sidecar: docker compose --profile local-llm up --build
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["local-llm"]
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  ollama-models:

@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# Node
+node_modules/
+frontend/dist/
+package-lock.json
+
+# Env / secrets
+.env
+*.local
+
+# Simulation artifacts
+simulation-report.json
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
