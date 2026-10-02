@@ -1,0 +1,10 @@
+[project]
+name = "ai-werewolf-arena-backend"
+version = "1.0.0"
+description = "Multi-agent LLM social-deduction arena: autonomous agents with episodic memory, guardrails, tracing and an ELO evaluation harness."
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q"
